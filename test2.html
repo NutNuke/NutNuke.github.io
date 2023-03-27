@@ -5,47 +5,78 @@
     <meta name="viewport" content="with=deice_width, initial-scale=1.0">
     <meta http-equiv=" X-UA-Compatible" content="ie=chrome">
     <title>INHAUS</title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid #444444;
+        }
+        button {
+			background-color: #005bec;
+			color: white;
+			border-radius: 10px;
+			font-size: 10px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: darkblue;
+		}
+        .tb-head>tr>td {
+            width: 100px;
+            border: 1px solid black;
+            font-size: 14;
+            font-weight: bold;
+        }
+        .tb-body>tr>td {
+            width: 100px;
+            border: 1px solid black;
+            border-width: 1px;
+            font-size: 5px;
+        }
+    </style>
 </head>          <!--이 페이지는 시설 예약현황 페이지 입니다-->
 <body>
     <div>
-        <table summary="예약현황" style="width: 300px; height: 200px;">
-            <button onclick="alert('<=')" style='width:50px; height:50px; font-size: 5px;'>
+        <button onclick="alert('<=')" style='width:50px; height:30px; font-size: 5px;'>
             이전달</button>
             
-            <caption> N월 예약현황</caption>
+        <caption> N월 예약현황</caption>
             
-            <button onclick="alert('=>')" style='width:50px; height:50px; font-size: 5px;'>
+        <button onclick="alert('=>')" style='width:50px; height:30px; font-size: 5px;'>
             다음달</button>
-            
-            <tr>
-                <th>3월</th> <!--요 방식보다 달력을 불러오거나 내용을 불러올 필요가 있음-->
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
 
-                
-            </tr>
-            <tr style="font-size:10px;">
-                <td>/축구연습(Incheon storm FC)09:00~10:29/미식축구부정규훈련(인하미식축구부)10:30~11:29/
-                    축구연습(인하조기축구)11:30~13:29/축구경기(인하조기)13:30~15:29</td>
-                <td>/교수축구회(교수축구회)15:00~16:59
-                </td>
-                <td></td>
-                <td>축구모임(방학축구모임)16:00~16:59</td>
-                <td></td>
-                <td>교수진축구모임</td>
-                
-            </tr>
-                
+
+        <table summary="예약현황">
+            <!--th=table head, tr=행 td=Cell-->
+            <thead class="tb-head">
+              <tr>
+                <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+              </tr>
+            </thead>
+            <tbody class="tb-body">
+                <tr>
+                    <td>/축구연습(Incheon storm FC)09:00~10:29/미식축구부정규훈련(인하미식축구부)10:30~11:29/축구연습(인하조기축구)11:30~13:29/축구경기(인하조기)13:30~15:29
+                    </td>
+                    <td>/교수축구회(교수축구회)15:00~16:59
+                    </td>
+                    <td>/정기모임(인하대학교 학군단 축구팀)13:00~14:59/전공실습 (체육교육과)15:00~16:59
+                    </td>
+                    <td>/2023학년도 편입학전형 필기고사 운영(입학팀)00:00~23:59
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                   <td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td></td><td></td><td></td>
+                </tr>
+            </tbody>
         </table>
     </div>
     
