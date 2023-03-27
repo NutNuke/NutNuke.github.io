@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="with=deice_width, initial-scale=1.0">
+    <meta http-equiv=" X-UA-Compatible" content="ie=chrome">
+    <title>INHAUS</title>
+    <style>
+		h1 {
+			color: blue;
+			font-size: 20px;
+			text-align: center;
+		}
+		button {
+			background-color: skyblue;
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		button:hover {
+			background-color: darkblue;
+		}
+        body {font-size:2rem;}
+    </style>
+    <script>
+        
+    //명령문을 쓸때는 ;를 붙여줄것!
+    </script>
+    <script src="js/scrpt.js"></script>
+
+</head>
+<body>
+    <div style="display:flex;">
+        <div>
+            <h1> Welcome to INHAUS!</h1>
+            <button onclick="alert('준비중입니다')">Click me!</button>
+            <p>안녕하세요!</p>
+            <div>
+                <button onclick="location.href='\ test2.html'"
+                style='width:500px; height:100px; font-size: 30px;'>
+                시설예약현황 보러가기</button> 
+                <!--이동주소에 주의! 서버 실행시 정상작동하게 만들것-->
+            </div>
+            <div>
+                <button onclick="alert('prepare to run!')" style='width:500px; height:100px; font-size: 30px;'>
+                로그인하러 가기!</button>
+            </div>
+            <a href="https://portal.inha.ac.kr/">포털 사이트 보러가기 </a>           
+        </div>
+        <div>
+            <h1> 2번째 페이지 입니다 </h1>
+            <img  src=".\images\test0.png" alt="인터넷을 확인해주세요">
+        </div>
+        <div>
+            <h1> 로그인 페이지 입니다 </h1>
+            <form>
+                
+                <input type="text" style="font-size: 30px;">
+                <p>ID : </p>
+                <input type="email" style="font-size: 30px;">
+                <p>PW: </p>
+                <input type="password" style="font-size: 30px;"> 
+                <button type="submit" style="font-size: 30px;">로그인</button> 
+            </form>
+        </div>
+    </div>
+    
+    
+
+    
+</body>
+</html>
