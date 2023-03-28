@@ -5,53 +5,34 @@
     <meta name="viewport" content="with=deice_width, initial-scale=1.0">
     <meta http-equiv=" X-UA-Compatible" content="ie=chrome">
     <title>INHAUS</title>
-    <style>
-        body{background-color: skyblue;}
-		h1 {
-			color: #005BEC;
-			font-size: 20px;
-			text-align: center;
-		}
-        .color-primary{
-            color: #005bec
-        }
-		button {
-			background-color: #00AFEC;
-			color: white;
-			padding: 10px 20px;
-			border-radius: 5px;
-			font-size: 15px;
-			cursor: pointer;
-		}
-		button:hover {
-			background-color: darkblue;
-		}
-        body {font-size:2rem;}
-    </style>
-    <script>
-        
+   
+    <script>    
     //명령문을 쓸때는 ;를 붙여줄것!
     </script>
     <script src="js/scrpt.js"></script>
 
 </head>
 <body>
-    <div style="display:flex;">
-        <div>
-            <h1> Welcome to INHAUS!</h1>
+    <link rel="stylesheet" href="test.css">
+    <div>
+        <h1> Welcome to INHAUS!</h1>
+        <div class="lb-wrap">
             <h1> 로그인 페이지 입니다 </h1>
-            <form>
-                
-                <input type="text" style="font-size: 20px;">
-                <p class="color-primary"> Email : </p>
-                <input type="email" style="font-size: 20px;">
-                <p class="color-primary"> PW: </p>
-                <input type="password" style="font-size: 20px;"> 
-                <button onclick="alert('미구현 기능 입니다')" type="submit" >
-                    <img  src=".\images\login_btn.png"></button> 
-                <!--제출 뒤 처리 js에서 처리-->
+            <form style="border-color: transparent;">
+                <div class="lb-image">
+                    <img postiion : relative; src=".\images\login_bg_img_rspsv.jpg">
+                </div>
+                <div class="lb-text" style="color: transparent;">
+                    <div><input type="text" style="font-size: 10px;" placeholder="학번/ID"></div>
+                    <div><input type="password" style="font-size: 10px;" placeholder="비밀번호"></div>
+    
+                    <div>
+                        <button class="button-pic" onclick="alert('미구현 기능 입니다')" type="submit" >
+                        <img  src=".\images\login_btn.png"></button> 
+                    </div>
             </form>
-
+        </div>
+        <div>
             <button onclick="alert('준비중입니다')">Click me!</button>
             <p>안녕하세요!</p>
             <div>
@@ -60,20 +41,24 @@
                 시설예약현황 보러가기</button> 
                 <!--이동주소에 주의! 서버 실행시 정상작동하게 만들것-->
             </div>
-        </br>
+            </br>
             <div>
                 <button onclick="alert('prepare to run!')" style='width:400px; height: 70px; font-size: 20px;'>
                 로그인하러 가기!</button>
             </div>
-        </br>
+            </br>
             <a href="https://portal.inha.ac.kr/">포털 사이트 보러가기 </a>  
-    </br>
+            </br>
             <h1> 사진입니다 </h1>
-            <img  src=".\images\login_bg_img_rspsv.jpg" alt="인터넷을 확인해주세요">         
-        </div>
+            <img  src=".\images\login_bg_img_rspsv.jpg" alt="인터넷을 확인해주세요">    
+            <form>
+                           
+            </form>
+        </div>       
+    </div>
         
             
-    </div>
+
     
     
 
