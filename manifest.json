@@ -1,12 +1,14 @@
 {
-    "manifest_version": 2,
-    "name": "INHAUS",
-    "short_name": "INHAUS",
-    "version": "1.0",
-    "display": "standalone",
-    "icons": {
-      "512": "images/icon.png"
-    },
-    "start_url":"https://nutnuke.github.io"
-
+  "manifest_version": 2,
+  "name": "INHAUS",
+  "short_name": "INHAUS",
+  "version": "1.0",
+  "display": "standalone",
+  "icons": {
+    "512": "images/icon.png"
+  },
+  "start_url": "https://nutnuke.github.io",
+  "theme_color": "#ffffff",
+  "background_color": "#48d4ff",
+  "description": "This is test"
 }
