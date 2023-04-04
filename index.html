@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="with=deice_width, initial-scale=1.0">
+    <meta name="viewport" content="with=640, initial-scale=1.0">
     <meta http-equiv=" X-UA-Compatible" content="ie=chrome">
     <title>INHAUS</title>
     <style>
@@ -24,9 +24,15 @@
 			cursor: pointer;
 		}
 		button:hover {
-			background-color: darkblue;
+			background-color: #005BEC;
 		}
         body {font-size:2rem;}
+        .button-pic{
+            border-style: none;
+            background-color: transparent;
+
+        }
+
     </style>
     <script>
         
@@ -39,23 +45,24 @@
     <div style="display:flex;">
         <div>
             <h1> Welcome to INHAUS!</h1>
-            <h1> 로그인 페이지 입니다 </h1>
-            <form>
-                
-                <input type="text" style="font-size: 20px;">
-                <p class="color-primary"> Email : </p>
-                <input type="email" style="font-size: 20px;">
-                <p class="color-primary"> PW: </p>
-                <input type="password" style="font-size: 20px;"> 
-                <button onclick="alert('미구현 기능 입니다')" type="submit" >
-                    <img  src=".\images\login_btn.png"></button> 
-                <!--제출 뒤 처리 js에서 처리-->
-            </form>
+            <div><h1> 로그인 페이지 입니다 </h1>
+                <form>
+                    <img postiion : relative; src=".\images\login_bg_img_rspsv.jpg">
+                    <input type="text" style="font-size: 20px;">
+                    <p class="color-primary"> Email : </p>
+                    <input type="email" style="font-size: 20px;">
+                    <p class="color-primary"> PW: </p>
+                    <input type="password" style="font-size: 20px;"> 
+                    <button class="button-pic" onclick="alert('미구현 기능 입니다')" type="submit" >
+                        <img  src=".\images\login_btn.png"></button> 
+                    <!--제출 뒤 처리 js에서 처리-->
+                </form>
+            </div>
 
             <button onclick="alert('준비중입니다')">Click me!</button>
             <p>안녕하세요!</p>
             <div>
-                <button onclick="location.href='\ test2.html'"
+                <button onclick="location.href='./calendar/calendar.html'"
                 style='width:400px; height:70px; font-size: 20px;'>
                 시설예약현황 보러가기</button> 
                 <!--이동주소에 주의! 서버 실행시 정상작동하게 만들것-->
