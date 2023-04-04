@@ -27,6 +27,7 @@
 
         .pastDay { 
             background-color: lightgray; 
+            cursor: pointer;
             border-radius: 10px;
         }
 
@@ -95,6 +96,7 @@
 
                 if (nowDay < today) {                       // 지난날인 경우
                     nowColumn.className = "pastDay";
+                    nowColumn.onclick = function () { choiceDate(this); }
                 }
                 else if (nowDay.getFullYear() == today.getFullYear() && nowDay.getMonth() == today.getMonth() && nowDay.getDate() == today.getDate()) { // 오늘인 경우           
                     nowColumn.className = "today";
@@ -103,16 +105,22 @@
                 else {                                      // 미래인 경우
                     nowColumn.className = "futureDay";
                     nowColumn.onclick = function () { choiceDate(this); }
+
                 }
             }
+        }
+        // 일정 페이지로 이동
+        function open_schedule() {
+	        window.open('./schedule.html');
         }
 
         // 날짜 선택
         function choiceDate(nowColumn) {
-            if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
+            if (document.getElementsByClassName("choiceDay")[0]) {      // 기존에 선택한 날짜가 있으면
                 document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
             }
             nowColumn.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
+            nowColumn.onclick = function () { open_schedule(); }
         }
         
         // 이전달 버튼 클릭
@@ -157,6 +165,7 @@
                 <td>금</td>
                 <td>토</td>
             </tr>
+
         </thead>
 
         <tbody>
