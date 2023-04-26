@@ -15,25 +15,15 @@
       <!-- /header -->
       <article data-role="content">
         <p id="Hdate0"></p>
+        <p id="Hdate1"></p>
       </article>
       <!-- /content -->
       <footer data-role="footer">
-        <h4>꼬릿말 영역입니다.</h4>
+        <h4>-----</h4>
       </footer>
       <!-- /footer -->
     </section>
     <!-- /page -->
-    <script>
-      const url = new URL(window.location);
-
-      // URLSearchParams 객체
-      const urlParams = url.searchParams;
-
-      // URLSearchParams.get()
-      const date = urlParams.get("date");
-      console.log(date);
-      Hdate.innerHTML = date + "일의 예약현황입니다";
-      Hdate0.innerHTML = date + "일의 데이터를 표시하는 공간입니다";
-    </script>
+    <script type="text/javascript" src="schedule1.js"></script>
   </body>
 </html>
