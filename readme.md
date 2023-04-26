@@ -7,5 +7,5 @@ UPDATE NOTES  </br>
 &nbsp;달력 클릭시 schedule page에 선택한 날짜값의 query가 전달되도록 수정</br>
 &nbsp;schedule page에서 선택한 날짜를 볼수 있게 수정</br>
 04/26 : 선택한 날짜에 따라 각 날짜에 맞는 schedule 데이터를 볼 수 있게 추가 
-<br/>&nbsp; schedule.json 파일 
+<br/>&nbsp; schedule.json 파일 추가
         
