@@ -17,7 +17,7 @@ Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
     // .then의 역할?
     const Schedule = data.schedule; //schedule에 schedule.json 의 schedule data 배치
     // iterate over each day in the schedule
-    let OutPut = `Schedule for Day ${Ndate} \n `;
+    let OutPut = `Schedule for Day ${Ndate}`+'<br>';
     //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
       for (let hour in Schedule[Ndate]) {
         OutPut += (`${hour}: ${Schedule[Ndate][hour]} `+'<br>');
