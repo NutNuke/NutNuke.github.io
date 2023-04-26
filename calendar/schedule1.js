@@ -11,7 +11,7 @@ console.log(typeof Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://nutnuke.github.io/calendar/schedule1.json")
+Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
     // .then의 역할?
