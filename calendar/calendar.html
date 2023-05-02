@@ -5,7 +5,7 @@
     <title>달력</title>
     <style>
       body {
-        background-color: skyblue;
+        background-color: #dbeefb;
       }
       td {
         width: 50px;
@@ -15,6 +15,9 @@
       .Calendar {
         text-align: center;
         margin: 0 auto;
+        border-radius: 15px;
+        background-color: #f8f8f8;
+        box-shadow: 0px 0px 10px lightgray;
       }
 
       .Calendar > thead > tr:first-child > td {
@@ -25,11 +28,13 @@
         background-color: gray;
         color: white;
         border-radius: 10px;
+        /*요일*/
       }
 
       .pastDay {
         background-color: lightgray;
         cursor: pointer;
+        border: 1px solid lightgray;
         border-radius: 10px;
       }
 
@@ -43,6 +48,12 @@
       .futureDay {
         background-color: #ffffff;
         cursor: pointer;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+      }
+
+      .DfmonthDay {
+        color: lightgray;
         border-radius: 10px;
       }
 
@@ -52,33 +63,41 @@
         color: #fff;
         cursor: pointer;
       }
+      .CalendarBOX {
+        margin: 0 auto;
+        background-color: #f4f4f4;
+        border-radius: 15px;
+        padding: 30px 30px;
+        width: 450px;
+      }
     </style>
 
     <script type="text/javascript" src="CalendarNew.js"></script>
   </head>
 
   <body>
-    <table class="Calendar">
-      <thead>
-        <tr>
-          <td onClick="prevCalendar();" style="cursor: pointer">&#60;</td>
-          <td colspan="5">
-            <span id="calYear"></span>년 <span id="calMonth"></span>월
-          </td>
-          <td onClick="nextCalendar();" style="cursor: pointer">&#62;</td>
-        </tr>
-        <tr>
-          <td>일</td>
-          <td>월</td>
-          <td>화</td>
-          <td>수</td>
-          <td>목</td>
-          <td>금</td>
-          <td>토</td>
-        </tr>
-      </thead>
-
-      <tbody></tbody>
-    </table>
+    <div class="CalendarBOX">
+      <table class="Calendar">
+        <thead>
+          <tr>
+            <td onclick="prevCalendar();" style="cursor: pointer">&#60;</td>
+            <td colspan="5">
+              <span id="calYear"></span>년 <span id="calMonth"></span>월
+            </td>
+            <td onclick="nextCalendar();" style="cursor: pointer">&#62;</td>
+          </tr>
+          <tr>
+            <td>일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
   </body>
 </html>

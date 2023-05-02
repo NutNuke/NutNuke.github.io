@@ -8,50 +8,71 @@ ToDay.setHours(0, 0, 0, 0); //편의를 위해 로드한 날의 시간을 초기
 
 //달력 생성 달에 맞는 테이블을 만들고, 날짜를 하나씩 채워넣는다
 function BuildCalendar() {
-  let FirstDate = new Date(NowMonth.getFullYear(), NowMonth.getMonth(), 1); //이번달의 년,월의 1일로 만들기
-  let LastDate = new Date(NowMonth.getFullYear(), NowMonth.getMonth() + 1, 0); // 이번달 마지막날 = 다음달의 0일
+  let firstDate = new Date(NowMonth.getFullYear(), NowMonth.getMonth(), 1); // 이번달 1일
+  let lastDate = new Date(NowMonth.getFullYear(), NowMonth.getMonth() + 1, 0); // 이번달 마지막날
 
-  let TbodyCalendar = document.querySelector(".Calendar > tbody");
-  //querySelector() 메소드는 CSS 선택자에 매치되는 하나 이상의 element 중 첫 번째 항목을 반환해줍니다
+  // 보여줄 이전달, 다음달 날짜 수 계산
+  let pDate = -firstDate.getDay();
+  let nDate = 6 - lastDate.getDay();
+  console.log(pDate);
+  console.log(nDate);
+
+  //달력 시작할 날, 끝날 날 계산
+  let StartDate = new Date(
+    NowMonth.getFullYear(),
+    NowMonth.getMonth(),
+    1 + pDate
+  ); // 이번달 1일
+  let EndDate = new Date(
+    NowMonth.getFullYear(),
+    NowMonth.getMonth() + 1,
+    0 + nDate
+  ); // 이번달 1일
+
+  let tbody_Calendar = document.querySelector(".Calendar > tbody");
   document.getElementById("calYear").innerText = NowMonth.getFullYear(); // 연도 숫자 갱신
   document.getElementById("calMonth").innerText = leftPad(
     NowMonth.getMonth() + 1
-  ); // 월 숫자 갱신 (두자리로 만들어주기)
+  ); // 월 숫자 갱신
 
-  for (let e = TbodyCalendar.rows.length; e > 0; ) {
-    // 이전 출력결과가 남아있는 경우 행 삭제 = 초기화
-    TbodyCalendar.deleteRow(TbodyCalendar.rows.length - 1);
+  while (tbody_Calendar.rows.length > 0) {
+    // 이전 출력결과가 남아있는 경우 초기화
+    tbody_Calendar.deleteRow(tbody_Calendar.rows.length - 1);
   }
-  let NowRow = TbodyCalendar.insertRow(); // 첫번째 행 추가
-  for (let j = 0; j < FirstDate.getDay(); j++) {
-    // 이번달 1일의 요일만큼
-    let NowColumn = NowRow.insertCell(); // 열 추가
-  }
+
+  let nowRow = tbody_Calendar.insertRow(); // 첫번째 행 추가
+
+  // for (let j = 0; j < firstDate.getDay(); j++) {
+  //   // 이번달 1일의 요일만큼 공백추가
+  //   let NowColumn = nowRow.insertCell(); // 열 추가
+  // }
+
   for (
-    let NowDay = FirstDate; //이번달 1일부터
-    NowDay <= LastDate; //마지막날 보다 작거나 같다
-    NowDay.setDate(NowDay.getDate() + 1) //NowDay를 자신의 날짜보다 1씩 증가시킨다
+    let NowDay = StartDate;
+    NowDay <= EndDate;
+    NowDay.setDate(NowDay.getDate() + 1)
   ) {
-    // NowDay는 날짜를 저장하는 변수, 이번달 마지막날까지 증가시키며 반복
+    // day는 날짜를 저장하는 변수, 이번달 마지막날까지 증가시키며 반복
+    // 저번달 짤린 날짜부터 다음달 짤리는 날까지
 
-    let NowColumn = NowRow.insertCell(); // 새 열을 추가하고
-    NowColumn.innerText = leftPad(NowDay.getDate()); // NowColumn안 텍스트 = 추가한 열에 날짜 2자리 입력
+    let NowColumn = nowRow.insertCell(); // 새 열을 추가하고
+    NowColumn.innerText = leftPad(NowDay.getDate()); // 추가한 열에 날짜 입력
 
     if (NowDay.getDay() == 0) {
-      // day=0 일요일인 경우 글자색 빨강으로
+      // 일요일인 경우 글자색 빨강으로
       NowColumn.style.color = "#DC143C";
     }
     if (NowDay.getDay() == 6) {
       // 토요일인 경우 글자색 파랑으로 하고
       NowColumn.style.color = "#0000CD";
-      NowRow = TbodyCalendar.insertRow(); // 새로운 행 추가
+      nowRow = tbody_Calendar.insertRow(); // 새로운 행 추가
     }
 
     if (NowDay < ToDay) {
       // 지난날인 경우
       NowColumn.className = "pastDay";
       NowColumn.onclick = function () {
-        ChoiceDate(this); //클릭시 ChoiceDate 실행
+        ChoiceDate(this);
       };
     }
     if (
@@ -59,7 +80,7 @@ function BuildCalendar() {
       NowDay.getMonth() == ToDay.getMonth() &&
       NowDay.getDate() == ToDay.getDate()
     ) {
-      // 선택 날짜와 오늘의 년,월,일이 같다 = 오늘인 경우
+      // 오늘인 경우
       NowColumn.className = "today";
       NowColumn.onclick = function () {
         ChoiceDate(this);
@@ -72,9 +93,11 @@ function BuildCalendar() {
         ChoiceDate(this);
       };
     }
+    if (NowDay.getMonth() != ToDay.getMonth())
+      NowColumn.className = "DfmonthDay";
+    // 이번달 날짜가 아닌경우
   }
 }
-
 function ChoiceDate(NowColumn) {
   console.log(NowColumn.innerText);
   if (document.getElementsByClassName("choiceDay")[0]) {
@@ -98,13 +121,15 @@ function OpenSchedule(SelectDate) {
 }
 
 // 이전달 버튼 클릭
-function PrevCalendar() {
+function prevCalendar() {
+  console.log("이전달");
   NowMonth = new Date(
     NowMonth.getFullYear(),
     NowMonth.getMonth() - 1,
     NowMonth.getDate()
   ); // 현재 달을 1 감소
-  BuildCalendar(); // 달력 다시 생성
+  BuildCalendar(); // 달력 다시 생성 오류?
+  console.log("이전달");
 }
 // 다음달 버튼 클릭
 function nextCalendar() {
