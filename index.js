@@ -5,6 +5,8 @@ let Ndate = ToDay.getDate();
 
 console.log(Ndate);
 
+
+//오늘자 일정표시
 Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
@@ -16,7 +18,7 @@ Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
     for (let hour in Schedule[Ndate]) {
       OutPut += `${hour}: ${Schedule[Ndate][hour]} \n`;
     }
-    Hdate0.innerText = OutPut;
+    TodaySchedule.innerText = OutPut;
     console.log(OutPut);
   })
   .catch((error) => console.error(error)); // handle any errors
