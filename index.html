@@ -2,81 +2,49 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="with=deice_width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json" >
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
     <meta http-equiv=" X-UA-Compatible" content="ie=chrome">
+    <link rel="stylesheet" href="index.css">
     <title>INHAUS</title>
-    <style>
-        body{background-color: skyblue;}
-		h1 {
-			color: #005BEC;
-			font-size: 20px;
-			text-align: center;
-		}
-        .color-primary{
-            color: #005bec
-        }
-		button {
-			background-color: #00AFEC;
-			color: white;
-			padding: 10px 20px;
-			border-radius: 5px;
-			font-size: 15px;
-			cursor: pointer;
-		}
-		button:hover {
-			background-color: darkblue;
-		}
-        body {font-size:2rem;}
-    </style>
-    <script>
-        
-    //명령문을 쓸때는 ;를 붙여줄것!
-    </script>
+    <script  type="text/javascript" src="index.js">  </script>
     <script src="js/scrpt.js"></script>
-
+    <h1>
+    <img postiion : relative; src=".\images\title.png" 
+    object-fit="cover;"> <!--타이틀 이미지-->
+    </h1>
 </head>
 <body>
-    <div style="display:flex;">
-        <div>
-            <h1> Welcome to INHAUS!</h1>
-            <h1> 로그인 페이지 입니다 </h1>
-            <form>
-                
-                <input type="text" style="font-size: 20px;">
-                <p class="color-primary"> Email : </p>
-                <input type="email" style="font-size: 20px;">
-                <p class="color-primary"> PW: </p>
-                <input type="password" style="font-size: 20px;"> 
-                <button onclick="alert('미구현 기능 입니다')" type="submit" >
-                    <img  src=".\images\login_btn.png"></button> 
-                <!--제출 뒤 처리 js에서 처리-->
-            </form>
-
-            <button onclick="alert('준비중입니다')">Click me!</button>
-            <p>안녕하세요!</p>
-            <div>
-                <button onclick="location.href='\ test2.html'"
-                style='width:400px; height:70px; font-size: 20px;'>
-                시설예약현황 보러가기</button> 
-                <!--이동주소에 주의! 서버 실행시 정상작동하게 만들것-->
+    <div class="Left">
+        <div class="wrap">
+            <div class="login">
+                <div class="login_id">
+                    <input type="email" name="" id="" placeholder="Email">
+                </div>
+                <div class="login_pw">
+                    <input type="password" name="" id="" placeholder="Password">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="로그인">
+                </div>
             </div>
-        </br>
-            <div>
-                <button onclick="alert('prepare to run!')" style='width:400px; height: 70px; font-size: 20px;'>
-                로그인하러 가기!</button>
-            </div>
-        </br>
-            <a href="https://portal.inha.ac.kr/">포털 사이트 보러가기 </a>  
-    </br>
-            <h1> 사진입니다 </h1>
-            <img  src=".\images\login_bg_img_rspsv.jpg" alt="인터넷을 확인해주세요">         
         </div>
         
-            
+    <div class="Box">
+        </br>
+        <button onClick="location.href='https://portal.inha.ac.kr/login.jsp?idpchked=false'" >
+            학교포털 가기</button>
+        </br>
+        <button onclick="location.href='./calendar/calendar.html'">
+            이번달 시설예약현황 보러가기</button>
     </div>
-    
-    
-
+    <div class="Right">
+        <button onclick="LoadTeamName();">TeamName</button>
+        <button onclick="LoadCalendar();">달력</button> 
+        <div id="Content">
+            로딩중
+        </div>
+    </div>
     
 </body>
 </html>
