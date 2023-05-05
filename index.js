@@ -1,22 +1,23 @@
-let ToDay = new Date(); // 페이지를 로드한 날을 저장
-ToDay.setHours(0, 0, 0, 0); //편의를 위해 로드한 날의 시간을 초기화
-
-let Ndate = ToDay.getDate();
-
-console.log(Ndate);
-
-Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
-  .then((response) => response.json()) // parse the response as JSON
-  .then((data) => {
-    // .then의 역할?
-    const Schedule = data.schedule; //schedule에 schedule.json 의 schedule data 배치
-    // iterate over each day in the schedule
-    let OutPut = `${Ndate}일 일정\n`;
-    //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
-    for (let hour in Schedule[Ndate]) {
-      OutPut += `${hour}: ${Schedule[Ndate][hour]} \n`;
+//index 페이지에서 달력과 TeamName을 불러오는 함수
+//AJAX사용
+function LoadCalendar() {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("Content").innerHTML = this.responseText;
     }
-    Hdate0.innerText = OutPut;
-    console.log(OutPut);
-  })
-  .catch((error) => console.error(error)); // handle any errors
+  };
+  xhttp.open("GET", "https://nutnuke.github.io/calendar/calendar.html", true);
+  xhttp.send();
+}
+
+function LoadTeamName() {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("Content").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://nutnuke.github.io/calendar/schedule.html", true);
+  xhttp.send();
+}

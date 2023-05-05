@@ -15,25 +15,36 @@
     </h1>
 </head>
 <body>
-    <div>
-        <div class="Box">
-            <h1> Welcome to INHAUS!</h1>
-                <form>
-                    <img postiion : relative; src=".\images\login_bg_img_rspsv.jpg" 
-                    object-fit="cover;" width="700px;">
-                </form>
-
-        </br>
-            <button onclick="location.href='./calendar/calendar.html'">
-            이번달 시설예약현황 보러가기</button>
-        </br>
-            <div class="ScheduleBox">
-                <p id="TodaySchedule"></p>
+    <div class="Left">
+        <div class="wrap">
+            <div class="login">
+                <div class="login_id">
+                    <input type="email" name="" id="" placeholder="Email">
+                </div>
+                <div class="login_pw">
+                    <input type="password" name="" id="" placeholder="Password">
+                </div>
+                <div class="submit">
+                    <input type="submit" value="로그인">
+                </div>
             </div>
-        </br>
-            <button onclick="window.open('https://portal.inha.ac.kr');" >학교포털 가기</button>
         </div>
         
+    <div class="Box">
+        </br>
+        <button onClick="location.href='https://portal.inha.ac.kr/login.jsp?idpchked=false'" >
+            학교포털 가기</button>
+        </br>
+        <button onclick="location.href='./calendar/calendar.html'">
+            이번달 시설예약현황 보러가기</button>
     </div>
+    <div class="Right">
+        <button onclick="LoadTeamName();">TeamName</button>
+        <button onclick="LoadCalendar();">달력</button> 
+        <div id="Content">
+            로딩중
+        </div>
+    </div>
+    
 </body>
 </html>
