@@ -1,0 +1,13 @@
+변수:문자열 = 날짜데이터 월 / 요일 / 날짜
+NowDay 
+NowMonth 실행한 날
+ToDay 실행한 날
+firstDate 이번달 1일
+lastDate 이번달 마지막날
+StartDate = firstDate - pDate 달력 시작 날
+EndDate = lastDate+nDate 달력 끝나는 날
+
+변수:정수값
+pDate 이전달 추가할 날 계산 값
+nDate 다음달 추가할 날 계산 값
+
