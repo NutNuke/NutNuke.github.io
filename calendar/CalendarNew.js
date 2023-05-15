@@ -117,7 +117,7 @@ function ChoiceDate(NowColumn) {
 
 // 페이지 이동
 function OpenSchedule(SelectDate) {
-  window.open(`schedule.html?date=${SelectDate}`); //query에 파라미터 추가
+  window.open(`nutnuke.github.io/calendar/schedule.html?date=${SelectDate}`); //query에 파라미터 추가
 }
 
 // 이전달 버튼 클릭
