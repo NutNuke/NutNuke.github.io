@@ -1,22 +1,38 @@
-let ToDay = new Date(); // 페이지를 로드한 날을 저장
-ToDay.setHours(0, 0, 0, 0); //편의를 위해 로드한 날의 시간을 초기화
+//index 페이지에서 달력과 TeamName을 불러오는 함수
+//AJAX사용
+src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"; //jquery, Ajax 불러오기
 
-let Ndate = ToDay.getDate();
+function LoadCalendar() {
+  //로드 by jquery
+  $.ajax({
+    url: "https://nutnuke.github.io/calendar/calendar.html",
+    dataType: "html",
+    success: function (response) {
+      // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
+      $("#Content").html(response);
+    },
+  });
+}
+function LoadSchedule() {
+  //로드 by jquery
+  $.ajax({
+    url: "https://nutnuke.github.io/calendar/schedule.html",
+    dataType: "html",
+    success: function (response) {
+      // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
+      $("#Content").html(response);
+    },
+  });
+}
 
-console.log(Ndate);
-
-Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
-  .then((response) => response.json()) // parse the response as JSON
-  .then((data) => {
-    // .then의 역할?
-    const Schedule = data.schedule; //schedule에 schedule.json 의 schedule data 배치
-    // iterate over each day in the schedule
-    let OutPut = `${Ndate}일 일정\n`;
-    //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
-    for (let hour in Schedule[Ndate]) {
-      OutPut += `${hour}: ${Schedule[Ndate][hour]} \n`;
-    }
-    Hdate0.innerText = OutPut;
-    console.log(OutPut);
-  })
-  .catch((error) => console.error(error)); // handle any errors
+// //로드함수 (오류발생)
+// let xhttp = new XMLHttpRequest();
+// xhttp.onreadystatechange = function () {
+//   //콜백함수
+//   if (this.readyState == 4 && this.status == 200) {
+//     //응답이 도착
+//     document.getElementById("Content").innerHTML = this.responseText; //Content에 내용표시
+//   }
+// };
+// xhttp.open("GET", "https://nutnuke.github.io/calendar/calendar.html", true); //요청
+// xhttp.send(); //요청 전송
