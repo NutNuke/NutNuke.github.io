@@ -24,7 +24,7 @@ Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
       OutPut += `${hour}: ${Schedule[Ndate][hour]} ` + "<br>";
     }
     HdayTitle.innerHTML = DayTitle;
-    HdayContents.innerHTML = OutPut;
+    Content.innerHTML = OutPut;
     console.log(OutPut);
   })
   .catch((error) => console.error(error)); // handle any errors
