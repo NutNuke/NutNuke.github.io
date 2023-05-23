@@ -46,13 +46,13 @@
       }
       #Mom-box {
         margin: 10px;
-        width: 1400px;
+        width: 1300px;
         align-content: center;
       }
       #left-box-1 {
         height: 600px;
         width: 400px;
-        margin-left: 10px;
+        margin-left: 50px;
         background-color: #dbeefb;
         float: left;
         border: solid black;
@@ -61,7 +61,7 @@
       }
       #right-box {
         height: 600px;
-        width: 900px;
+        width: 700px;
         background-color: lightgray;
         float: right;
         border-radius: 20px;
@@ -69,7 +69,7 @@
       }
       /*==================*/
       .wrap {
-        width: 300px;
+        width: 250px;
         height: 200px;
         display: flex;
         align-items: center;
@@ -78,8 +78,8 @@
       }
 
       .login {
-        width: 250px;
-        height: 180px;
+        width: 220px;
+        height: 160px;
         background: #00afec;
         border-radius: 20px;
         display: flex;
@@ -89,8 +89,8 @@
       }
 
       .login_id {
-        margin-top: 5px;
-        width: 200px;
+        margin-top: 0px;
+        width: 160px;
       }
 
       .login_id input {
@@ -105,7 +105,7 @@
 
       .login_pw {
         margin-top: 5px;
-        width: 200px;
+        width: 160px;
       }
 
       .login_pw input {
@@ -129,8 +129,8 @@
       }
 
       .submit {
-        margin-top: 10px;
-        width: 200px;
+        margin-top: 5px;
+        width: 170px;
       }
       .submit input {
         width: 100%;
@@ -140,22 +140,25 @@
         border-radius: 40px;
         background: #4c5c9f;
         color: white;
-        font-size: 8px;
+        font-size: 15px;
         letter-spacing: 2px;
       }
       .shield {
-        width: 80px;
-        height: 80px;
+        width: 120px;
+        height: 120px;
         background-color: whitesmoke;
         display: flex;
+        border: solid black;
         border-radius: 20px;
+        margin-top: 40px;
         align-items: center;
         justify-content: center;
         float: right;
       }
       .schedule {
         display: inline-block;
-        width: 300px;
+        margin-left: 5%;
+        width: 350px;
         height: 380px;
         border-radius: 20px;
         background-color: #005bec;
@@ -168,7 +171,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script type="text/javascript" src="index.js"></script>
   <body>
+    <!-- Main-->
     <div id="Mom-box" class="box">
+      <!--Left area-->
       <div id="left-box-1" class="box">
         <div class="box">
           <div class="wrap">
@@ -184,11 +189,14 @@
               </div>
             </div>
           </div>
+          <div class="shield">소속</div>
         </div>
-        <div class="shield"></div>
         <div class="schedule"></div>
       </div>
+      <!--Right-box area-->
       <div id="right-box" class="box">
+        <button onclick="LoadCalendar();">달력</button>
+        <button onclick="LoadSchedule();">오늘</button>
         <div id="Content"></div>
         <!-- content for right box -->
       </div>
