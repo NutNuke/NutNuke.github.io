@@ -5,8 +5,12 @@ const urlParams = url.searchParams;
 
 // URLSearchParams.get()
 const date = urlParams.get("date");
+const month = urlParams.get("month");
+const year = urlParams.get("year");
 console.log(date);
 const Ndate = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
+const Nmonth = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
+const Nyear = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
 console.log(Ndate);
 
 // Load the JSON file
@@ -24,7 +28,7 @@ Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
       OutPut += `${hour}: ${Schedule[Ndate][hour]} ` + "<br>";
     }
     HdayTitle.innerHTML = DayTitle;
-    Content.innerHTML = OutPut;
+    HdayContents.innerHTML = OutPut;
     console.log(OutPut);
   })
   .catch((error) => console.error(error)); // handle any errors

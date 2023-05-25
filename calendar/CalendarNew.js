@@ -98,6 +98,8 @@ function BuildCalendar() {
     // 이번달 날짜가 아닌경우
   }
 }
+
+//==============================================================================//
 function ChoiceDate(NowColumn) {
   console.log(NowColumn.innerText);
   if (document.getElementsByClassName("choiceDay")[0]) {
@@ -106,18 +108,22 @@ function ChoiceDate(NowColumn) {
       .getElementsByClassName("choiceDay")[0]
       .classList.remove("choiceDay"); // 해당 날짜의 "choiceDay" class 제거
   }
+  let SelectYear = NowMonth.getFullYear();
+  let SelectMonth = NowMonth.getMonth();
   let SelectDate = NowColumn.innerText; // 변수전달을 위해 선택한 날의 날짜 정보만 가져오기
   NowColumn.classList.add("choiceDay"); // 더블 클릭 구현을 위해 선택된 날짜에 "choiceDay" class 추가
   window.MyPage = NowColumn.innerText;
 
   NowColumn.onclick = function () {
-    OpenSchedule(SelectDate);
+    OpenSchedule(SelectDate, SelectMonth, SelectYear);
   }; //두번 클릭시 일정표 여는 함수 실행 및 변수 전달
 }
 
 // 페이지 이동
-function OpenSchedule(SelectDate) {
-  window.open(`calendar/schedule.html?date=${SelectDate}`); //query에 파라미터 추가
+function OpenSchedule(SelectDate, SelectMonth, SelectYear) {
+  window.open(
+    `calendar/schedule.html?date=${SelectDate}&month=${SelectMonth}&year=${SelectYear}`
+  ); //query에 파라미터 추가
 }
 
 // 이전달 버튼 클릭
