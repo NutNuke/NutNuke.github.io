@@ -5,7 +5,7 @@ src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"; //jque
 function LoadCalendar() {
   //로드 by jquery
   $.ajax({
-    url: "https://nutnuke.github.io/calendar/calendar.html",
+    url: "https://nutnuke.github.io/calendar/CalendarIndex.html",
     dataType: "html",
     success: function (response) {
       // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
