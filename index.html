@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
   <head>
     <meta charset="UTF-8" />
     <link rel="manifest" href="manifest.json" />
@@ -19,15 +21,19 @@
         color: #005bec;
       }
       button {
-        background-color: #00afec;
+        background-color: lightgray;
         color: white;
+        width: 80px;
         padding: 10px 20px;
+        border: 0px;
         border-radius: 5px;
-        font-size: 15px;
+        font-size: 20px;
         cursor: pointer;
+        margin-left: 0px;
+        margin-right: 0px;
       }
       button:hover {
-        background-color: #005bec;
+        background-color: rgb(226, 223, 223);
       }
       body {
         font-size: 2rem;
@@ -55,12 +61,18 @@
         margin-left: 50px;
         background-color: #dbeefb;
         float: left;
-        border: solid black;
         border-radius: 20px;
         justify-content: center;
       }
-      #right-box {
+      #right-box-out {
         height: 600px;
+        width: 700px;
+        background-color: #dbeefb;
+        float: right;
+        border-radius: 0px
+      }
+      #right-box-in {
+        height: 550px;
         width: 700px;
         background-color: lightgray;
         float: right;
@@ -79,7 +91,7 @@
 
       .login {
         width: 220px;
-        height: 160px;
+        height: 170px;
         background: #00afec;
         border-radius: 20px;
         display: flex;
@@ -90,7 +102,7 @@
 
       .login_id {
         margin-top: 0px;
-        width: 160px;
+        width: 180px;
       }
 
       .login_id input {
@@ -105,7 +117,7 @@
 
       .login_pw {
         margin-top: 5px;
-        width: 160px;
+        width: 180px;
       }
 
       .login_pw input {
@@ -129,8 +141,8 @@
       }
 
       .submit {
-        margin-top: 5px;
-        width: 170px;
+        margin-bottom: 0px;
+        width: 180px;
       }
       .submit input {
         width: 100%;
@@ -158,8 +170,8 @@
       .schedule {
         display: inline-block;
         margin-left: 5%;
-        width: 350px;
-        height: 380px;
+        width: 380px;
+        height: 400px;
         border-radius: 20px;
         background-color: #005bec;
       }
@@ -168,8 +180,7 @@
       <img postiion : relative; src=".\images\title.png" object-fit="cover;" />
     </h1>
   </head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script type="text/javascript" src="index.js"></script>
+
   <body>
     <!-- Main-->
     <div id="Mom-box" class="box">
@@ -194,10 +205,12 @@
         <div class="schedule"></div>
       </div>
       <!--Right-box area-->
-      <div id="right-box" class="box">
-        <button onclick="LoadCalendar();">달력</button>
-        <button onclick="LoadSchedule();">오늘</button>
-        <div id="Content"></div>
+      <div id="right-box-out" class="box">
+        <button onclick="LoadCalendar();">CAL</button>
+        <button onclick="LoadSchedule();">DAY</button>
+        <div id="right-box-in" class="box">
+          <div id="Content"></div>
+        </div>
         <!-- content for right box -->
       </div>
     </div>
