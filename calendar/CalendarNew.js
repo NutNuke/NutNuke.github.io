@@ -1,7 +1,5 @@
 window.onload = function () {
   BuildCalendar();
-  nextCalendar();
-  prevCalendar();
 }; //페이지 로드시 BuildCalendar실행
 
 let NowMonth = new Date(); //현재 월을 로드한 날의 월로 초기화
