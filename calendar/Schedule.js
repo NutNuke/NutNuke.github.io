@@ -9,8 +9,8 @@ const month = urlParams.get("month");
 const year = urlParams.get("year");
 console.log(date);
 const Ndate = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
-const Nmonth = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
-const Nyear = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
+const Nmonth = Number(month); //리스트 인덱싱을 위한 문자열 숫자로 변환
+const Nyear = Number(year); //리스트 인덱싱을 위한 문자열 숫자로 변환
 console.log(Ndate);
 
 // Load the JSON file
