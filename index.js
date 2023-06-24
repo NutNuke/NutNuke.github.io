@@ -136,7 +136,7 @@ function ChoiceDate(NowColumn) {
       .classList.remove("choiceDay"); // 해당 날짜의 "choiceDay" class 제거
   }
   let SelectYear = NowMonth.getFullYear();
-  let SelectMonth = NowMonth.getMonth();
+  let SelectMonth = NowMonth.getMonth()+1;
   let SelectDate = NowColumn.innerText; // 변수전달을 위해 선택한 날의 날짜 정보만 가져오기
   NowColumn.classList.add("choiceDay"); // 더블 클릭 구현을 위해 선택된 날짜에 "choiceDay" class 추가
   window.MyPage = NowColumn.innerText;
