@@ -3,7 +3,7 @@ const url = new URL(window.location);
 // URLSearchParams 객체
 const urlParams = url.searchParams;
 
-// URLSearchParams.get()
+// URLSearchParams.get() 쿼리에서 년/원/일 받아오기
 const date = urlParams.get("date");
 const month = urlParams.get("month");
 const year = urlParams.get("year");
@@ -15,18 +15,23 @@ console.log(Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://nutnuke.github.io/calendar/schedule.json")
+Contents = fetch("https://nutnuke.github.io/crawl.json")
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
     // .then의 역할?
-    const Schedule = data.schedule; //schedule에 schedule.json 의 schedule data 배치
+    const Schedule = data; //schedule에 schedule.json 의 schedule data 배치
     // iterate over each day in the schedule
-    let DayTitle = `Schedule for Day ${Ndate}` + "<br>";
+    let DayTitle = `${Nyear}년 ${Nmonth}월 ${Ndate}일` + "<br>";
     let OutPut = ``;
     //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
-    for (let hour in Schedule[Ndate]) {
-      OutPut += `${hour}: ${Schedule[Ndate][hour]} ` + "<br>";
+    //i를 data 크기만큼 반복
+    //데이터와 선택한 날짜의 년/월/일이 일치시 일치하는 셀데이터 연속으로 출력
+    for (let i = 0; i<Schedule.length; i++) {
+      if(Schedule[i].year == Nyear && Schedule[i].month == Nmonth && Schedule[i].day == Ndate) {
+        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>";
+      }
     }
+    
     HdayTitle.innerHTML = DayTitle;
     HdayContents.innerHTML = OutPut;
     console.log(OutPut);
