@@ -24,10 +24,7 @@ function LoadSchedule() {
     },
   });
 }
-/////////////////////////////
-window.onload = function () {
-  BuildCalendar();
-}; //페이지 로드시 BuildCalendar실행
+//---------------------------------CALENDAR-------------------------------------------------
 
 let NowMonth = new Date(); //현재 월을 로드한 날의 월로 초기화
 let ToDay = new Date(); // 페이지를 로드한 날을 저장
@@ -183,4 +180,51 @@ function leftPad(value) {
   return value;
 }
 
-BuildCalendar();
+// window.onload = function () {
+//   BuildCalendar();
+// }; //페이지 로드시 BuildCalendar실행
+
+
+//---------------------------------ToDay
+
+
+// URLSearchParams.get() 쿼리에서 년/원/일 받아오기
+const date = ToDay.getDate();
+const month = ToDay.getMonth()+1;
+const year = ToDay.getFullYear();
+
+const Ndate = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
+const Nmonth = Number(month); //리스트 인덱싱을 위한 문자열 숫자로 변환
+const Nyear = Number(year); //리스트 인덱싱을 위한 문자열 숫자로 변환
+console.log(Nyear);
+console.log(Nmonth);
+console.log(Ndate);
+
+// Load the JSON file
+HdayContents = ``;
+HdayTitle = ``;
+OutPut = ``;
+Contents = fetch("https://nutnuke.github.io/crawl.json")
+  .then((response) => response.json()) // parse the response as JSON
+  .then((data) => {
+    // .then의 역할?
+    const Schedule = data; //schedule에 schedule.json 의 schedule data 배치
+    // iterate over each day in the schedule
+    let DayTitle = `${Nyear}년 ${Nmonth}월 ${Ndate}일` + "<br>";
+    let OutPut = ``;
+    //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
+    //i를 data 크기만큼 반복
+    //데이터와 선택한 날짜의 년/월/일이 일치시 일치하는 셀데이터 연속으로 출력
+    for (let i = 0; i<Schedule.length; i++) {
+      if(Schedule[i].year == Nyear && Schedule[i].month == Nmonth && Schedule[i].day == Ndate) {
+        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
+      }
+    }
+    
+    HdayContents.innerHTML = OutPut;
+    HdayTitle.innerHTML = DayTitle;
+    console.log(OutPut);
+    console.log(DayTitle);
+  })
+  .catch((error) => console.error(error)); // handle any errors
+//date를 int로 만들어주는 함수

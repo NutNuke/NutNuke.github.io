@@ -28,12 +28,12 @@ Contents = fetch("https://nutnuke.github.io/crawl.json")
     //데이터와 선택한 날짜의 년/월/일이 일치시 일치하는 셀데이터 연속으로 출력
     for (let i = 0; i<Schedule.length; i++) {
       if(Schedule[i].year == Nyear && Schedule[i].month == Nmonth && Schedule[i].day == Ndate) {
-        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>";
+        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
       }
     }
     
-    HdayTitle.innerHTML = DayTitle;
     HdayContents.innerHTML = OutPut;
+    HdayTitle.innerHTML = DayTitle;
     console.log(OutPut);
   })
   .catch((error) => console.error(error)); // handle any errors

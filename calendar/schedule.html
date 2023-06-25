@@ -9,6 +9,13 @@
       body {
         background-color: #dbeefb;
       } /*배경색*/
+      p {
+        width: 450px;
+        border-radius: 5px;
+        background-color: #dbeefb;
+        margin-bottom: 10px;
+
+      }
       .ScheduleBox {
         background-color: white;
         border-radius: 10px;
@@ -28,22 +35,13 @@
     <title>INHAUS</title>
   </head>
   <body>
-    <!-- Start of first page -->
-    <section data-role="page" id="1_page">
-      <header data-role="header"></header>
-      <!-- /header -->
       <!-- 일정 표시 영역 -->
-      <article data-role="content">
-        <div class="ScheduleBox">
-          <p id="HdayTitle" class="Title"></p>
-          <p id="HdayContents"></p>
-        </div>
-      </article>
+    <article data-role="content">
+      <div class="ScheduleBox">
+        <p id="HdayTitle" class="Title"></p>
+        <p id="HdayContents"></p>
+      </div>
+    </article>
       <!-- /content -->
-      <footer data-role="footer"></footer>
-      <!-- /footer -->
-    </section>
-    <!-- /page -->
-    
   </body>
 </html>

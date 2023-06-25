@@ -157,3 +157,5 @@ function leftPad(value) {
   }
   return value;
 }
+
+BuildCalendar();
