@@ -146,7 +146,7 @@ function ChoiceDate(NowColumn) {
 // 페이지 이동
 function OpenSchedule(SelectDate, SelectMonth, SelectYear) {
   window.open(
-    `calendar/schedule.html?date=${SelectDate}&month=${SelectMonth}&year=${SelectYear}`
+    `schedule.html?date=${SelectDate}&month=${SelectMonth}&year=${SelectYear}`
   ); //query에 파라미터 추가
 }
 
