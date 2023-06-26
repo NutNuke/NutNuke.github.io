@@ -1,30 +1,7 @@
-//index 페이지에서 달력과 TeamName을 불러오는 함수
-//AJAX사용
-//jquery, Ajax 불러오기
-
-function LoadCalendar() {
-  //로드 by jquery
-  $.ajax({
-    url: 'https://nutnuke.github.io/calendar/calendar.html',
-    dataType: "html",
-    success: function (response) {
-      // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
-      $("#Content").html(response);
-    },
-  });
-}
-function LoadSchedule() {
-  //로드 by jquery
-  $.ajax({
-    url: "https://nutnuke.github.io/calendar/schedule.html",
-    dataType: "html",
-    success: function (response) {
-      // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
-      $("#Content").html(response);
-    },
-  });
-}
-//---------------------------------CALENDAR-------------------------------------------------
+<script type="text/javascript" src="CalendarNew.js">
+  window.onload = function () {
+  BuildCalendar();
+}; //페이지 로드시 BuildCalendar실행
 
 let NowMonth = new Date(); //현재 월을 로드한 날의 월로 초기화
 let ToDay = new Date(); // 페이지를 로드한 날을 저장
@@ -122,8 +99,6 @@ function BuildCalendar() {
     // 이번달 날짜가 아닌경우
   }
 }
-
-//==============================================================================//
 function ChoiceDate(NowColumn) {
   console.log(NowColumn.innerText);
   if (document.getElementsByClassName("choiceDay")[0]) {
@@ -132,22 +107,18 @@ function ChoiceDate(NowColumn) {
       .getElementsByClassName("choiceDay")[0]
       .classList.remove("choiceDay"); // 해당 날짜의 "choiceDay" class 제거
   }
-  let SelectYear = NowMonth.getFullYear();
-  let SelectMonth = NowMonth.getMonth()+1;
   let SelectDate = NowColumn.innerText; // 변수전달을 위해 선택한 날의 날짜 정보만 가져오기
   NowColumn.classList.add("choiceDay"); // 더블 클릭 구현을 위해 선택된 날짜에 "choiceDay" class 추가
   window.MyPage = NowColumn.innerText;
 
   NowColumn.onclick = function () {
-    OpenSchedule(SelectDate, SelectMonth, SelectYear);
+    OpenSchedule(SelectDate);
   }; //두번 클릭시 일정표 여는 함수 실행 및 변수 전달
 }
 
 // 페이지 이동
-function OpenSchedule(SelectDate, SelectMonth, SelectYear) {
-  window.open(
-    `calendar/schedule.html?date=${SelectDate}&month=${SelectMonth}&year=${SelectYear}`
-  ); //query에 파라미터 추가
+function OpenSchedule(SelectDate) {
+  window.open(`schedule.html?date=${SelectDate}`); //query에 파라미터 추가
 }
 
 // 이전달 버튼 클릭
@@ -179,52 +150,96 @@ function leftPad(value) {
   }
   return value;
 }
+</script>
+<style>
+  body {
+    background-color: #dbeefb;
+  }
+  td {
+    width: 50px;
+    height: 50px;
+  }
 
-// window.onload = function () {
-//   BuildCalendar();
-// }; //페이지 로드시 BuildCalendar실행
+  .Calendar {
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    box-shadow: 0px 0px 10px lightgray;
+  }
 
+  .Calendar > thead > tr:first-child > td {
+    font-weight: bold;
+  }
 
-//---------------------------------ToDay
+  .Calendar > thead > tr:last-child > td {
+    background-color: gray;
+    color: white;
+    border-radius: 10px;
+    /*요일*/
+  }
 
+  .pastDay {
+    background-color: lightgray;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+  }
 
-// URLSearchParams.get() 쿼리에서 년/원/일 받아오기
-const date = ToDay.getDate();
-const month = ToDay.getMonth()+1;
-const year = ToDay.getFullYear();
+  .today {
+    background-color: #ffca64;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+  }
 
-const Ndate = Number(date); //리스트 인덱싱을 위한 문자열 숫자로 변환
-const Nmonth = Number(month); //리스트 인덱싱을 위한 문자열 숫자로 변환
-const Nyear = Number(year); //리스트 인덱싱을 위한 문자열 숫자로 변환
-console.log(Nyear);
-console.log(Nmonth);
-console.log(Ndate);
+  .futureDay {
+    background-color: #ffffff;
+    cursor: pointer;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+  }
 
-// Load the JSON file
-HdayContents = ``;
-HdayTitle = ``;
-OutPut = ``;
-Contents = fetch("https://nutnuke.github.io/crawl.json")
-  .then((response) => response.json()) // parse the response as JSON
-  .then((data) => {
-    // .then의 역할?
-    const Schedule = data; //schedule에 schedule.json 의 schedule data 배치
-    // iterate over each day in the schedule
-    let DayTitle = `${Nyear}년 ${Nmonth}월 ${Ndate}일` + "<br>";
-    let OutPut = ``;
-    //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
-    //i를 data 크기만큼 반복
-    //데이터와 선택한 날짜의 년/월/일이 일치시 일치하는 셀데이터 연속으로 출력
-    for (let i = 0; i<Schedule.length; i++) {
-      if(Schedule[i].year == Nyear && Schedule[i].month == Nmonth && Schedule[i].day == Ndate) {
-        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
-      }
-    }
-    
-    HdayContents.innerHTML = OutPut;
-    HdayTitle.innerHTML = DayTitle;
-    console.log(OutPut);
-    console.log(DayTitle);
-  })
-  .catch((error) => console.error(error)); // handle any errors
-//date를 int로 만들어주는 함수
+  .DfmonthDay {
+    color: lightgray;
+    border-radius: 10px;
+  }
+
+  .futureDay.choiceDay,
+  .today.choiceDay {
+    background-color: #3e85ef;
+    color: #fff;
+    cursor: pointer;
+  }
+  .CalendarBOX {
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 30px 30px;
+    width: 450px;
+  }
+</style>
+
+<div class="CalendarBOX">
+  <table class="Calendar">
+    <thead>
+      <tr>
+        <td onclick="prevCalendar();" style="cursor: pointer">&#60;</td>
+        <td colspan="5">
+          <span id="calYear"></span>년 <span id="calMonth"></span>월
+        </td>
+        <td onclick="nextCalendar();" style="cursor: pointer">&#62;</td>
+      </tr>
+      <tr>
+        <td>일</td>
+        <td>월</td>
+        <td>화</td>
+        <td>수</td>
+        <td>목</td>
+        <td>금</td>
+        <td>토</td>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
