@@ -24,6 +24,41 @@ function LoadSchedule() {
     },
   });
 }
+
+//----------------------------------Today--------------------------------
+let IndexToDay = new Date(); // 페이지를 로드한 날을 저장
+let Tyear = IndexToDay.getFullYear();
+let Tmonth = IndexToDay.getMonth()+1;
+let Tdate = IndexToDay.getDate();
+console.log(Tyear, Tmonth, Tdate)
+// 변수전달을 위해 선택한 날의 날짜 정보만 가져오기
+
+Contents = fetch("https://nutnuke.github.io/crawl.json")
+  .then((response) => response.json()) // parse the response as JSON
+  .then((data) => {
+    // .then의 역할?
+    const Schedule = data; //schedule에 schedule.json 의 schedule data 배치
+    // iterate over each day in the schedule
+    let DayTitle = `${Tyear}년 ${Tmonth}월 ${Tdate}일` + "<br>";
+    let OutPut = ``;
+    //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
+    //i를 data 크기만큼 반복
+    //데이터와 선택한 날짜의 년/월/일이 일치시 일치하는 셀데이터 연속으로 출력
+    for (let i = 0; i<Schedule.length; i++) {
+      if(Schedule[i].year == Tyear && Schedule[i].month == Tmonth && Schedule[i].day == Tdate) {
+        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
+      }
+    }
+    HdayContents=``
+    HdayTitle=``
+    HdayContents.innerHTML = OutPut;
+    HdayTitle.innerHTML = DayTitle;
+    console.log(OutPut);
+  })
+  .catch((error) => console.error(error)); // handle any errors
+
+
+
 //---------------------------------CALENDAR-------------------------------------------------
 
 // let NowMonth = new Date(); //현재 월을 로드한 날의 월로 초기화
