@@ -5,7 +5,7 @@
 function LoadCalendar() {
   //로드 by jquery
   $.ajax({
-    url: 'https://nutnuke.github.io/calendar/calendar.html',
+    url: 'https://nutnuke.github.io/calendar.html',
     dataType: "html",
     success: function (response) {
       // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
@@ -16,7 +16,7 @@ function LoadCalendar() {
 function LoadSchedule() {
   //로드 by jquery
   $.ajax({
-    url: "https://nutnuke.github.io/calendar/schedule.html",
+    url: "https://nutnuke.github.io/schedule.html",
     dataType: "html",
     success: function (response) {
       // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
