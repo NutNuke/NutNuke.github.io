@@ -49,11 +49,11 @@ Contents = fetch("https://nutnuke.github.io/crawl.json")
         OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
       }
     }
-    HdayContents=``
-    HdayTitle=``
-    HdayContents.innerHTML = OutPut;
-    HdayTitle.innerHTML = DayTitle;
-    console.log(DayTitle);
+    TdayContents=``
+    TdayTitle=``
+    TdayContents.innerHTML = OutPut;
+    TdayTitle = DayTitle;
+    console.log(TdayTitle);
     console.log(OutPut);
   })
   .catch((error) => console.error(error)); // handle any errors
