@@ -15,14 +15,14 @@ function LoadCalendar() {
 }
 function LoadSchedule() {
   //로드 by jquery
-  $.ajax({
-    url: "https://nutnuke.github.io/schedule.html",
-    dataType: "html",
-    success: function (response) {
-      // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
-      $("#Content").html(response);
-    },
-  });
+  // $.ajax({
+  //   url: "https://nutnuke.github.io/schedule.html",
+  //   dataType: "html",
+  //   success: function (response) {
+  //     // 로드된 HTML을 삽입하면서 자동으로 <script>가 실행됩니다.
+  //     $("#Content").html(response);
+  //   },
+  // });
 }
 
 //----------------------------------Today--------------------------------
@@ -49,15 +49,12 @@ Contents = fetch("https://nutnuke.github.io/crawl.json")
         OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
       }
     }
-    TdayContents=``
-    TdayTitle=``
-    TdayContents.innerHTML = OutPut;
-    TdayTitle = DayTitle;
-    console.log(TdayTitle);
+    console.log(DayTitle);
     console.log(OutPut);
+    TdayContents.innerText = OutPut;
+    TdayTitle.innerText = DayTitle;
   })
   .catch((error) => console.error(error)); // handle any errors
-
 window.onload = function() {
   LoadSchedule();
 };
