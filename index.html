@@ -11,6 +11,12 @@
       body {
         background-color: #dbeefb;
       }
+      @font-face {
+        font-family: 'CookieRun';
+        src: url("./CookieRunRegular.otf") format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
       p {
         width: 600px;
         border-radius: 5px;
@@ -78,7 +84,7 @@
       #right-box-in {
         height: 550px;
         width: 700px;
-        background-color: lightgray;
+        background-color: rgb(219, 218, 218);
         float: right;
         border-radius: 20px;
         justify-content: center;
@@ -213,9 +219,9 @@
         <button onclick="LoadCalendar();">CAL</button>
         <button onclick="LoadSchedule();">DAY</button>
         <div id="right-box-in" class="box">
-          <div id="Content">
-            <p id="TdayTitle" class="Title"></p>
-            <p id="TdayContents"></p>
+          <div id="Content" style="font-family: CookieRun">
+            <p id="TdayTitle" class="Title" ></p>
+            <p id="TdayContents" style="font-family: CookieRun"></p>
           </div>
         </div>
         <!-- content for right box -->
