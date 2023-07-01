@@ -10,7 +10,7 @@ let Tdate = IndexToDay.getDate();
 console.log(Tyear, Tmonth, Tdate);
 // 변수전달을 위해 선택한 날의 날짜 정보만 가져오기
 
-Contents = fetch("http://220.88.188.76:8080/data/crawl")
+Contents = fetch("https://401b-220-88-188-76.ngrok-free.app/data/crawl")
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
     // .then의 역할?
