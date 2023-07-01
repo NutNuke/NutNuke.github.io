@@ -15,7 +15,7 @@ console.log(Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://bd24-220-88-188-76.ngrok-free.app/data/crawl")
+Contents = fetch("http://220.88.188.76:8080/data/crawl")
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
     // .then의 역할?
