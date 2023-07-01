@@ -15,7 +15,13 @@ console.log(Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://401b-220-88-188-76.ngrok-free.app/data/crawl")
+Contents = fetch("https://401b-220-88-188-76.ngrok-free.app/data/crawl", {
+  method: "GET",
+  headers: {
+    "Content-Type": `application/json`,
+    "ngrok-skip-browser-warning": "69420",
+  },
+})
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
     // .then의 역할?
