@@ -15,7 +15,7 @@ console.log(Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://nutnuke.github.io/crawl.json")
+Contents = fetch("https://bd24-220-88-188-76.ngrok-free.app/data/crawl")
   .then((response) => response.json()) // parse the response as JSON
   .then((data) => {
     // .then의 역할?
@@ -26,12 +26,19 @@ Contents = fetch("https://nutnuke.github.io/crawl.json")
     //문자열이 아닌 리스트를 문자로 출력하려면 ${}를 사용하자
     //i를 data 크기만큼 반복
     //데이터와 선택한 날짜의 년/월/일이 일치시 일치하는 셀데이터 연속으로 출력
-    for (let i = 0; i<Schedule.length; i++) {
-      if(Schedule[i].year == Nyear && Schedule[i].month == Nmonth && Schedule[i].day == Ndate) {
-        OutPut += `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` + "<br>"  + "<br>";
+    for (let i = 0; i < Schedule.length; i++) {
+      if (
+        Schedule[i].year == Nyear &&
+        Schedule[i].month == Nmonth &&
+        Schedule[i].day == Ndate
+      ) {
+        OutPut +=
+          `${Schedule[i].start_time}-${Schedule[i].end_time} : ${Schedule[i].contents} ` +
+          "<br>" +
+          "<br>";
       }
     }
-    
+
     HdayContents.innerHTML = OutPut;
     HdayTitle.innerHTML = DayTitle;
     console.log(OutPut);
