@@ -15,7 +15,7 @@ console.log(Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://2ba7-220-88-188-76.ngrok-free.app/data/crawl", {
+Contents = fetch("https://f436-220-88-188-76.ngrok-free.app/data/crawl", {
   method: "GET",
   headers: {
     "Content-Type": `application/json`,
