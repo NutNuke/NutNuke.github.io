@@ -15,7 +15,7 @@ console.log(Ndate);
 
 // Load the JSON file
 
-Contents = fetch("https://f436-220-88-188-76.ngrok-free.app/data/crawl", {
+Contents = fetch("https://nutnuke.github.io/crawl.json", {
   method: "GET",
   headers: {
     "Content-Type": `application/json`,
